@@ -1,0 +1,93 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: rgb(43, 39, 39);
+}
+.wrapper {
+  min-width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+.slider {
+  text-align: center;
+  padding: 2rem 2rem 0 2rem;
+  margin: 0 auto;
+}
+#overflow {
+  width: 100%;
+  overflow: hidden;
+}
+.slides .image {
+  display: flex;
+  width: 400%;
+  line-height: 0;
+}
+.slides article {
+  flex: 1 1 25%;
+  height: 100%;
+}
+article img {
+  width: 50%;
+  height: 80vh;
+}
+#desktop:checked ~ #slider {
+  max-width: 35vw;
+}
+label, a {
+  cursor: pointer;
+}
+.wrapper input {
+  display: none;
+}
+#button1:checked ~ .slides .image {
+  margin-left: 0;
+}
+#button2:checked ~ .slides .image {
+  margin-left: -100%;
+}
+#button3:checked ~ .slides .image {
+  margin-left: -200%;
+}
+#button4:checked ~ .slides .image {
+  margin-left: -300%;
+}
+.slides .image {
+  transition: all 900ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+#active {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#active label {
+  border-radius: 50%;
+  width: 0.75em;
+  height: 0.75em;
+  margin: 0.5em;
+  background: rgb(65, 127, 199);
+  border: 0.2rem solid rgb(65, 127, 199);
+  transition: opacity 0.2s ease-out;
+}
+#active label::before {
+  content: '';
+  margin: -1em;
+  padding: 1em;
+}
+#active label:hover {
+  background: #fff;
+  border-color: #fff !important;
+}
+#active label:active {
+  background-color: rgba(255, 240, 37, 0.664);
+  border-color: rgba(248, 225, 21, 0.664) !important;
+}
+#button1:checked ~ #active label:nth-child(1),
+#button2:checked ~ #active label:nth-child(2),
+#button3:checked ~ #active label:nth-child(3),
+#button4:checked ~ #active label:nth-child(4) {
+  background: rgb(43, 39, 39);
+  border: 0.2rem solid rgb(65, 127, 199);
+}
